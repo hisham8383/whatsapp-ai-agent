@@ -1,0 +1,26 @@
+[
+  {
+    "name": "appointment_reminder",
+    "language": "ar",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "تذكير بموعدك في {{1}} يوم {{2}} الساعة {{3}}. تبي تأكد الموعد أو تغيّره؟",
+       "example": {"body_text": [["عيادة ديمو", "الأحد", "5:00 م"]]}},
+      {"type": "BUTTONS",
+       "buttons": [{"type": "QUICK_REPLY", "text": "تأكيد"}, {"type": "QUICK_REPLY", "text": "تغيير الموعد"}]}
+    ]
+  },
+  {
+    "name": "appointment_reminder",
+    "language": "en",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "Reminder: your appointment at {{1}} is on {{2}} at {{3}}. Would you like to confirm or reschedule?",
+       "example": {"body_text": [["Demo Clinic", "Sunday", "5:00 PM"]]}},
+      {"type": "BUTTONS",
+       "buttons": [{"type": "QUICK_REPLY", "text": "Confirm"}, {"type": "QUICK_REPLY", "text": "Reschedule"}]}
+    ]
+  }
+]

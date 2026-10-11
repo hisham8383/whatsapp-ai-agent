@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whatsapp-agent-api
+spec:
+  selector: {app: whatsapp-agent, role: api}
+  ports:
+    - port: 80
+      targetPort: 8080
+# Expose via the client's Ingress / load balancer with TLS. Meta requires HTTPS for webhooks.

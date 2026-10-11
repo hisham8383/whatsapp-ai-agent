@@ -1,0 +1,13 @@
+Customer (tapped reminder button): Reschedule
+Assistant: Here are some available times for your teeth cleaning with Dr. Sara. You can pick from today (Sunday) or Monday onwards—just let me know which date and time you'd prefer.
+  [tappable list: Sun 4 Oct, 11:00; Sun 4 Oct, 11:30; Sun 4 Oct, 12:00; Sun 4 Oct, 12:30; Sun 4 Oct, 13:00; Sun 4 Oct, 13:30; Sun 4 Oct, 14:00; Sun 4 Oct, 14:30; Sun 4 Oct, 15:00; Sun 4 Oct, 15:30]
+Customer: Tuesday at 11am please.
+Assistant: Please confirm the change:
+Teeth cleaning with Dr. Sara
+From: Monday 5 October at 10:00
+To: Tuesday 6 October at 11:00
+  [buttons: Yes, move it | Change]
+Customer: Yes, that's right.
+Assistant: Your appointment is moved ✅
+Teeth cleaning with Dr. Sara
+Tuesday 6 October at 11:00

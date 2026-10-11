@@ -1,0 +1,14 @@
+Customer: Can I book a dental check-up on Monday?
+Assistant: Great! Monday is looking good. Here are some available times with Dr. Sara: 9:00 AM, 10:00 AM, 11:00 AM, 12:00 PM, 2:00 PM, 3:00 PM or later. Pick whichever works best for you!
+  [tappable list: Mon 5 Oct, 09:00; Mon 5 Oct, 09:30; Mon 5 Oct, 10:00; Mon 5 Oct, 10:30; Mon 5 Oct, 11:00; Mon 5 Oct, 11:30; Mon 5 Oct, 12:00; Mon 5 Oct, 12:30; Mon 5 Oct, 13:00; Mon 5 Oct, 13:30]
+Customer (picked from list): Mon 5 Oct, 09:00
+Assistant: Please confirm your booking:
+Dental check-up with Dr. Sara
+Monday 5 October at 09:00
+30 min · 150 SAR
+  [buttons: Yes, book it | Change]
+Customer: Yes, that's right.
+Assistant: You're booked ✅
+Dental check-up with Dr. Sara
+Monday 5 October at 09:00
+See you then!

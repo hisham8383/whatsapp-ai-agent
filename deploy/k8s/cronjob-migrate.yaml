@@ -1,0 +1,21 @@
+# Runs DB migrations. Trigger manually before each deploy:
+#   kubectl create job --from=cronjob/whatsapp-agent-migrate migrate-$(date +%s)
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: whatsapp-agent-migrate
+spec:
+  schedule: "0 0 31 2 *"   # never fires on its own (Feb 31). Used as a job template.
+  suspend: true
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: migrate
+              image: whatsapp-ai-agent:latest
+              command: ["python", "-m", "alembic", "upgrade", "head"]
+              envFrom:
+                - configMapRef: {name: whatsapp-agent-config}
+                - secretRef: {name: whatsapp-agent-secrets}

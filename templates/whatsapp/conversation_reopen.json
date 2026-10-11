@@ -1,0 +1,22 @@
+[
+  {
+    "name": "conversation_reopen",
+    "language": "ar",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "هلا {{1}}، معك فريق {{2}} بخصوص طلبك الأخير. رد على هالرسالة ونكمل معك.",
+       "example": {"body_text": [["أحمد", "عيادة ديمو"]]}}
+    ]
+  },
+  {
+    "name": "conversation_reopen",
+    "language": "en",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "Hi {{1}}, this is the {{2}} team following up on your recent request. Reply to this message and we'll continue.",
+       "example": {"body_text": [["Ahmed", "Demo Clinic"]]}}
+    ]
+  }
+]

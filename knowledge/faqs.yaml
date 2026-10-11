@@ -1,0 +1,7 @@
+# FAQs in both languages. No count limit; retrieval switches on above ~15k tokens.
+# The assistant answers ONLY from this file and business.yaml.
+faqs:
+  - q_ar: "{{QUESTION_AR}}"
+    a_ar: "{{ANSWER_AR}}"
+    q_en: "{{QUESTION_EN}}"
+    a_en: "{{ANSWER_EN}}"

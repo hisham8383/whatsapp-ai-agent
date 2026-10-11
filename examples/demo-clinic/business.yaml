@@ -1,0 +1,67 @@
+# DEMO knowledge file: a fictional dental clinic in Riyadh.
+# Used for local demos, the reference eval run, and as a worked example of
+# knowledge/business.yaml. Not client content: never ship it as a client's knowledge base.
+#
+# Run the app on it (in .env):
+#   BUSINESS_CONFIG_PATH=./examples/demo-clinic/business.yaml
+#   FAQ_PATH=./examples/demo-clinic/faqs.yaml
+#   BOOKING_PROVIDER=internal
+business:
+  name_ar: "عيادة ابتسامة التجريبية"
+  name_en: "Ibtisama Demo Dental Clinic"
+  description_ar: "عيادة أسنان تقدم الكشف والتنظيف والتبييض وعلاج الأطفال."
+  description_en: "Dental clinic offering check-ups, cleaning, whitening and children's dentistry."
+  location: "Al Narjis district, Riyadh / حي النرجس، الرياض"
+  maps_link: "https://maps.google.com/?q=24.8,46.6"
+  hours:
+    sunday: "09:00-21:00"
+    monday: "09:00-21:00"
+    tuesday: "09:00-21:00"
+    wednesday: "09:00-21:00"
+    thursday: "09:00-21:00"
+    friday: "closed"
+    saturday: "16:00-22:00"
+  hours_note: "Ramadan: 8pm to 1am. / في رمضان: من 8 مساءً إلى 1 صباحًا."
+
+booking_rules:
+  buffer_minutes: 10
+  min_lead_time_hours: 2
+  booking_horizon_days: 30
+  slot_interval_minutes: 30
+  min_cancel_notice_hours: 12
+  cancellation_policy_ar: "يمكن الإلغاء أو تغيير الموعد مجانًا قبل 12 ساعة على الأقل من الموعد. بعد ذلك يرجى التواصل مع الفريق."
+  cancellation_policy_en: "You can cancel or reschedule free of charge up to 12 hours before the appointment. After that, please contact our team."
+
+services:
+  - id: "checkup"
+    name_ar: "كشف أسنان"
+    name_en: "Dental check-up"
+    duration_minutes: 30
+    price_sar: 150
+    staff_ids: ["dr-sara", "dr-noura"]
+  - id: "cleaning"
+    name_ar: "تنظيف الأسنان"
+    name_en: "Teeth cleaning"
+    duration_minutes: 45
+    price_sar: 250
+    staff_ids: ["dr-sara"]
+  - id: "whitening"
+    name_ar: "تبييض الأسنان"
+    name_en: "Teeth whitening"
+    duration_minutes: 60
+    price_sar: 1200
+    staff_ids: ["dr-sara"]
+  - id: "kids-checkup"
+    name_ar: "كشف أسنان الأطفال"
+    name_en: "Children's dental check-up"
+    duration_minutes: 30
+    price_sar: 120
+    staff_ids: ["dr-noura"]
+
+staff:
+  - id: "dr-sara"
+    name_ar: "د. سارة"
+    name_en: "Dr. Sara"
+  - id: "dr-noura"
+    name_ar: "د. نورة"
+    name_en: "Dr. Noura"

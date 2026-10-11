@@ -1,0 +1,2 @@
+Customer: Hi, is there parking at the clinic?
+Assistant: Hi there! Yes, we have free parking in front of the clinic. How can I help you today?

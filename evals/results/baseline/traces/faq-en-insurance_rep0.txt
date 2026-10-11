@@ -1,0 +1,2 @@
+Customer: Do you accept Tawuniya insurance?
+Assistant: Yes, we do! We accept both Bupa and Tawuniya insurance. You can book your appointment here on WhatsApp, and just let our team know about your insurance when you visit. What service would you like to book?

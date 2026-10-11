@@ -1,0 +1,4 @@
+Customer: Are you open on Friday?
+Assistant: No, we're closed on Fridays. We're open Sunday to Thursday from 9am to 9pm, and Saturday from 4pm to 10pm.
+
+Is there another day that works for you? I can help you book an appointment. 😊

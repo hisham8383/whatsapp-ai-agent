@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="list">{% include "_list.html" %}</div>
+{% endblock %}
+{% block script %}
+<script>
+  // Auto-refresh: reload the list and the unread count (alerts arrive on WhatsApp/email).
+  setInterval(async () => {
+    try {
+      const r = await fetch("/inbox/partials/list", {credentials: "same-origin"});
+      if (r.redirected || !r.ok) { location.href = "/inbox/login"; return; }
+      document.getElementById("list").innerHTML = await r.text();
+      const n = Number(r.headers.get("X-Unread") || 0);
+      document.title = (n ? "(" + n + ") " : "") + "Staff inbox";
+    } catch (e) { /* offline: try again next time */ }
+  }, {{ refresh_seconds }} * 1000);
+</script>
+{% endblock %}

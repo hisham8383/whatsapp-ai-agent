@@ -1,0 +1,30 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [{
+    "id": "222222222222222",
+    "changes": [{
+      "field": "messages",
+      "value": {
+        "messaging_product": "whatsapp",
+        "metadata": {"display_phone_number": "966500000009", "phone_number_id": "111111111111111"},
+        "contacts": [{"profile": {"name": "Sarah"}, "wa_id": "966507654321"}],
+        "messages": [
+          {
+            "from": "966507654321",
+            "id": "wamid.DUP0001",
+            "timestamp": "1790000400",
+            "type": "text",
+            "text": {"body": "Hi, are you open on Friday?"}
+          },
+          {
+            "from": "966507654321",
+            "id": "wamid.DUP0001",
+            "timestamp": "1790000400",
+            "type": "text",
+            "text": {"body": "Hi, are you open on Friday?"}
+          }
+        ]
+      }
+    }]
+  }]
+}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsapp-agent-worker
+  labels: {app: whatsapp-agent, role: worker}
+# Replicas are safe: jobs are claimed with FOR UPDATE SKIP LOCKED, and bookings take an
+# advisory lock per staff member. Timed work (reminders, alerts, retention) is the scheduler's.
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: whatsapp-agent, role: worker}
+  template:
+    metadata:
+      labels: {app: whatsapp-agent, role: worker}
+    spec:
+      securityContext: {runAsNonRoot: true, runAsUser: 10001}
+      containers:
+        - name: worker
+          image: whatsapp-ai-agent:latest   # replace with the client's registry path
+          args: ["worker"]
+          envFrom:
+            - configMapRef: {name: whatsapp-agent-config}
+            - secretRef: {name: whatsapp-agent-secrets}
+          resources:
+            requests: {cpu: 100m, memory: 192Mi}
+            limits: {memory: 384Mi}

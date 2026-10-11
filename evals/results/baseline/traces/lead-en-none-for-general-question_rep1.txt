@@ -1,0 +1,4 @@
+Customer: What time do you open on Saturday?
+Assistant: On Saturday, we open at 4 PM (16:00) and close at 10 PM (22:00).
+
+Is there anything else I can help you with?

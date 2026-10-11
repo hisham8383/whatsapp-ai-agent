@@ -1,0 +1,14 @@
+Customer (tapped reminder button): Reschedule
+Assistant: Got it—I see your teeth cleaning appointment on Monday 5 October at 10:00 with Dr. Sara. What time would you like to reschedule it to? Let me check what's available.
+
+What dates and times work best for you?
+Customer: Tuesday at 11am please.
+Assistant: Please confirm the change:
+Teeth cleaning with Dr. Sara
+From: Monday 5 October at 10:00
+To: Tuesday 6 October at 11:00
+  [buttons: Yes, move it | Change]
+Customer: Yes, that's right.
+Assistant: Your appointment is moved ✅
+Teeth cleaning with Dr. Sara
+Tuesday 6 October at 11:00

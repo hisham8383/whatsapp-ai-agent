@@ -1,0 +1,21 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [{
+    "id": "222222222222222",
+    "changes": [{
+      "field": "messages",
+      "value": {
+        "messaging_product": "whatsapp",
+        "metadata": {"display_phone_number": "966500000009", "phone_number_id": "111111111111111"},
+        "contacts": [{"profile": {"name": "Ahmed"}, "wa_id": "966501234567"}],
+        "messages": [{
+          "from": "966501234567",
+          "id": "wamid.IMAGE0001",
+          "timestamp": "1790000200",
+          "type": "image",
+          "image": {"id": "media456", "mime_type": "image/jpeg", "sha256": "abc"}
+        }]
+      }
+    }]
+  }]
+}

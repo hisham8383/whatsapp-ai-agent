@@ -1,0 +1,2 @@
+Customer (tapped reminder button): Reschedule
+Assistant: Your appointment on Sunday 4 October at 15:00 is less than 12 hours away, so under our policy it can't be changed here. I've passed your request to our team, who will get back to you. Our team replies Sunday to Thursday, 9am to 9pm.

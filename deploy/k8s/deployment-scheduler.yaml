@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsapp-agent-scheduler
+  labels: {app: whatsapp-agent, role: scheduler}
+# EXACTLY ONE replica (CLAUDE.md §3). Sends are still exactly-once with two (rows are
+# claimed FOR UPDATE SKIP LOCKED), but sync and retention would run twice for nothing.
+# Recreate, not RollingUpdate, so an old and a new pod never overlap during a deploy.
+spec:
+  replicas: 1
+  strategy: {type: Recreate}
+  selector:
+    matchLabels: {app: whatsapp-agent, role: scheduler}
+  template:
+    metadata:
+      labels: {app: whatsapp-agent, role: scheduler}
+    spec:
+      securityContext: {runAsNonRoot: true, runAsUser: 10001}
+      containers:
+        - name: scheduler
+          image: whatsapp-ai-agent:latest   # replace with the client's registry path
+          args: ["scheduler"]
+          envFrom:
+            - configMapRef: {name: whatsapp-agent-config}
+            - secretRef: {name: whatsapp-agent-secrets}
+          resources:
+            requests: {cpu: 50m, memory: 160Mi}
+            limits: {memory: 320Mi}

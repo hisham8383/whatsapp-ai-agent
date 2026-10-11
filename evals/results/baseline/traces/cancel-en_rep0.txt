@@ -1,0 +1,11 @@
+Customer: Please cancel my appointment on Thursday.
+Assistant: Please confirm the cancellation:
+Dental check-up with Dr. Sara
+Thursday 8 October at 12:00
+
+You can cancel or reschedule free of charge up to 12 hours before the appointment. After that, please contact our team.
+  [buttons: Yes, cancel it | No, keep it]
+Customer: Yes, cancel it.
+Assistant: Your appointment is cancelled ✅
+Dental check-up with Dr. Sara
+Thursday 8 October at 12:00

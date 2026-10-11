@@ -1,0 +1,9 @@
+# Cloud Build: build the image with deploy/docker/Dockerfile and push it to Artifact Registry.
+#   gcloud builds submit --config deploy/gcp/cloudbuild.yaml --substitutions _IMAGE=<region>-docker.pkg.dev/<project>/agent/whatsapp-agent:<tag> .
+# Uploads the folder minus .gitignore'd files (.env never leaves the machine).
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "deploy/docker/Dockerfile", "-t", "${_IMAGE}", "."]
+images: ["${_IMAGE}"]
+options:
+  logging: CLOUD_LOGGING_ONLY

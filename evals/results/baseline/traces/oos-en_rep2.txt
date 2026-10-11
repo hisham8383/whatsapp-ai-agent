@@ -1,0 +1,4 @@
+Customer: Do you do hair transplants?
+Assistant: We're a dental clinic, so we don't offer hair transplants. We specialize in dental services like check-ups, cleaning, whitening and children's dentistry.
+
+Is there anything dental I can help you with?

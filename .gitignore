@@ -1,0 +1,37 @@
+# Secrets — never commit (CLAUDE.md §2)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local DBs / editors
+*.sqlite3
+*.db
+.vscode/
+.idea/
+
+# Eval outputs (traces contain full conversations)
+evals/results/
+
+# Per-deployment Cloud Run settings (copy of deploy/gcp/env.example.yaml)
+deploy/gcp/env.yaml
+
+# ...except the committed reference run on the demo clinic (portfolio evidence)
+!evals/results/
+evals/results/*
+!evals/results/baseline/

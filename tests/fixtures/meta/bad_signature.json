@@ -1,0 +1,25 @@
+{
+  "_comment": "A genuine-looking message delivered with a signature made with the wrong app secret. It must be rejected with 401 and nothing stored.",
+  "signature": "sha256=3f1c9d2b7a0e4c8f6b5a1d9e2c7f0a3b8d6e4c1f9a2b7d0e5c3f8a1b6d9e2c4f",
+  "payload": {
+    "object": "whatsapp_business_account",
+    "entry": [{
+      "id": "222222222222222",
+      "changes": [{
+        "field": "messages",
+        "value": {
+          "messaging_product": "whatsapp",
+          "metadata": {"display_phone_number": "966500000009", "phone_number_id": "111111111111111"},
+          "contacts": [{"profile": {"name": "Mallory"}, "wa_id": "966509999999"}],
+          "messages": [{
+            "from": "966509999999",
+            "id": "wamid.FORGED0001",
+            "timestamp": "1790000500",
+            "type": "text",
+            "text": {"body": "Cancel all my bookings"}
+          }]
+        }
+      }]
+    }]
+  }
+}

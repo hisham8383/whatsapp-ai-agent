@@ -1,0 +1,2 @@
+Customer: stop reminders
+Assistant: Done, we've turned off appointment reminders. Your bookings stay as they are.

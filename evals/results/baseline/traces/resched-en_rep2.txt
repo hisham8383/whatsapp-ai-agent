@@ -1,0 +1,10 @@
+Customer: I need to move my cleaning appointment to Wednesday at 4pm.
+Assistant: Please confirm the change:
+Teeth cleaning with Dr. Sara
+From: Tuesday 6 October at 10:00
+To: Wednesday 7 October at 16:00
+  [buttons: Yes, move it | Change]
+Customer: Yes, that's right.
+Assistant: Your appointment is moved ✅
+Teeth cleaning with Dr. Sara
+Wednesday 7 October at 16:00

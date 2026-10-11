@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy – {{ b.name_en }}</title>
+<style>
+  body { margin:0; font:16px/1.6 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif; color:#1d2330; background:#f6f7f9; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 48px; }
+  section { background:#fff; border:1px solid #e4e7ec; border-radius:12px; padding:20px 24px; margin-bottom:20px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:18px; margin:20px 0 6px; }
+  .muted { color:#667085; font-size:14px; }
+  ul { padding-inline-start:22px; }
+  [dir="rtl"] { font-family:Tahoma,"Segoe UI",system-ui,sans-serif; }
+</style>
+</head>
+<body>
+<main>
+<section>
+  <h1>Privacy policy</h1>
+  <p class="muted">{{ b.name_en }} · WhatsApp assistant · Last updated {{ updated.isoformat() }}</p>
+
+  <p>{{ b.name_en }} uses an automated assistant on WhatsApp to answer questions
+  and to book, move and cancel appointments. This page explains what it stores
+  and how to have it deleted.</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li>Your WhatsApp number and the name on your WhatsApp profile, or the name you give us.</li>
+    <li>The messages you send us and our replies.</li>
+    <li>Your appointments (service, date, time, staff).</li>
+  </ul>
+  <p>We never ask for health details, ID numbers or card details. Please don't send them.</p>
+
+  <h2>Why</h2>
+  <p>Only to answer your questions, manage your appointments, and let our staff
+  continue the conversation when you ask for a person.</p>
+
+  <h2>Who processes it for us</h2>
+  <ul>
+    <li><strong>Meta (WhatsApp)</strong> carries the messages.</li>
+    <li><strong>Anthropic</strong> provides the AI that writes the assistant's replies. Messages are sent to it only to produce a reply.</li>
+    <li><strong>Google Cloud</strong> hosts the service and its database.</li>
+    {% if calendar %}<li><strong>Google Calendar</strong> holds the appointments.</li>{% endif %}
+  </ul>
+  <p>We don't sell your data or use it for advertising.</p>
+
+  <h2>How long we keep it</h2>
+  <p>Message text is deleted automatically after {{ retention_days }} days.
+  Appointment records are kept as business records.</p>
+
+  <h2 id="deletion">Deleting your data</h2>
+  <p>Send us a WhatsApp message saying <strong>"Delete my data"</strong> and ask for a
+  person. Our team will delete your messages, name and number from our systems
+  within 30 days and confirm on WhatsApp. Appointment records we must keep for
+  our business are anonymized instead.</p>
+
+  <h2>Contact</h2>
+  <p>Message {{ b.name_en }} on this WhatsApp number{% if b.location %}, or visit us at {{ b.location }}{% endif %}.</p>
+</section>
+
+<section dir="rtl" lang="ar">
+  <h1>سياسة الخصوصية</h1>
+  <p class="muted">{{ b.name_ar }} · المساعد على واتساب · آخر تحديث {{ updated.isoformat() }}</p>
+
+  <p>يستخدم {{ b.name_ar }} مساعدًا آليًا على واتساب للإجابة عن الأسئلة وحجز
+  المواعيد وتغييرها وإلغائها. توضح هذه الصفحة ما يحفظه وكيف تطلب حذفه.</p>
+
+  <h2>ما نجمعه</h2>
+  <ul>
+    <li>رقم واتساب الخاص بك واسم ملفك في واتساب أو الاسم الذي تذكره لنا.</li>
+    <li>الرسائل التي ترسلها وردودنا عليها.</li>
+    <li>مواعيدك (الخدمة والتاريخ والوقت والطبيب/الموظف).</li>
+  </ul>
+  <p>لا نطلب أبدًا معلومات صحية أو أرقام هوية أو بيانات بطاقات. نرجو عدم إرسالها.</p>
+
+  <h2>لماذا</h2>
+  <p>فقط للإجابة عن أسئلتك وإدارة مواعيدك وتمكين فريقنا من متابعة المحادثة عندما تطلب التحدث مع موظف.</p>
+
+  <h2>من يعالجها نيابة عنا</h2>
+  <ul>
+    <li><strong>Meta (واتساب)</strong> لنقل الرسائل.</li>
+    <li><strong>Anthropic</strong> توفر الذكاء الاصطناعي الذي يكتب ردود المساعد، وتُرسل إليها الرسائل فقط لكتابة الرد.</li>
+    <li><strong>Google Cloud</strong> لاستضافة الخدمة وقاعدة البيانات.</li>
+    {% if calendar %}<li><strong>Google Calendar</strong> لحفظ المواعيد.</li>{% endif %}
+  </ul>
+  <p>لا نبيع بياناتك ولا نستخدمها للإعلانات.</p>
+
+  <h2>مدة الاحتفاظ</h2>
+  <p>تُحذف نصوص الرسائل تلقائيًا بعد {{ retention_days }} يومًا. وتُحفظ سجلات المواعيد كسجلات للنشاط.</p>
+
+  <h2>حذف بياناتك</h2>
+  <p>أرسل لنا على واتساب <strong>"احذف بياناتي"</strong> واطلب التحدث مع موظف. سيحذف فريقنا
+  رسائلك واسمك ورقمك من أنظمتنا خلال 30 يومًا ويؤكد لك ذلك على واتساب. أما سجلات
+  المواعيد التي يلزمنا حفظها فتُزال منها بياناتك الشخصية.</p>
+
+  <h2>التواصل</h2>
+  <p>راسل {{ b.name_ar }} على رقم واتساب هذا.</p>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="card">
+{% for m in t.messages %}
+  <div class="msg {{ m.sender }}" dir="auto">{% if m.body is none %}<em class="muted">(text deleted after the retention period)</em>{% else %}{{ m.body }}{% endif %}<span class="meta">{{ {"customer": "Customer", "bot": "Assistant", "staff": "Staff"}[m.sender] }} · {{ m.at.strftime("%a %d %b, %H:%M") }}{% if m.status == "failed" %} · not delivered{% endif %}</span></div>
+{% else %}
+  <div class="muted">No messages.</div>
+{% endfor %}
+</div>

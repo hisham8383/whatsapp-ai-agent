@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}{{ t.customer_name or "Customer" }} – Staff inbox{% endblock %}
+{% block content %}
+<p><a href="/inbox">← All conversations</a></p>
+<h1 dir="auto">{{ t.customer_name or "Customer" }} <span class="muted">+{{ t.wa_id }}</span></h1>
+{% if t.summary %}<div class="card"><div class="muted">Summary from the assistant</div><div dir="auto">{{ t.summary }}</div></div>{% endif %}
+<div class="muted">
+  Follow-up: {{ t.follow_up or "none" }}{% if t.opted_out_followups %} · opted out of follow-ups{% endif %}{% if t.opted_out_reminders %} · reminders off{% endif %}
+</div>
+{% if error %}<div class="banner">{{ error }}</div>{% endif %}
+
+<div id="messages">{% include "_messages.html" %}</div>
+
+{% if t.state == "HUMAN" %}
+<form method="post" action="/inbox/c/{{ t.conversation_id }}/reply" class="card" id="reply">
+  <div id="window-closed" class="banner" {% if t.window_open %}hidden{% endif %}>
+    {% if t.reopen_waiting %}Re-open message sent. You can reply as soon as the customer answers.
+    {% else %}{{ window_closed_text }}
+    <button type="submit" class="secondary" formaction="/inbox/c/{{ t.conversation_id }}/reopen">Re-open with template</button>
+    {% endif %}
+  </div>
+  {% if staff_replied %}
+  <div class="banner">The assistant stays silent in this chat until you click <strong>Return to bot</strong>.</div>
+  {% endif %}
+  <textarea name="text" dir="auto" maxlength="4096" placeholder="Reply to the customer on WhatsApp…"
+            {% if not t.window_open %}disabled{% endif %}></textarea>
+  <div class="row" style="margin-top:8px">
+    <button type="submit" id="send" {% if not t.window_open %}disabled{% endif %}>Send</button>
+    <button type="submit" class="secondary" formaction="/inbox/c/{{ t.conversation_id }}/release">Return to bot</button>
+    <span class="muted">The assistant answers this customer again from their next message.</span>
+  </div>
+</form>
+{% else %}
+<div class="card muted">This conversation is with the assistant. It appears in your list again if the assistant hands it over.</div>
+{% endif %}
+{% endblock %}
+{% block script %}
+<script>
+  // One click, one message: lock the form once it's submitted (the server also ignores
+  // an identical reply within 30 seconds).
+  const reply = document.getElementById("reply");
+  if (reply) {
+    reply.addEventListener("submit", (e) => {
+      if (reply.dataset.sent) { e.preventDefault(); return; }
+      reply.dataset.sent = "1";
+      const send = document.getElementById("send");
+      if (e.submitter === send) { send.textContent = "Sending…"; }
+      setTimeout(() => reply.querySelectorAll("button").forEach(b => b.disabled = true), 0);
+    });
+  }
+  // Refresh messages every {{ refresh_seconds }} s without touching the reply box.
+  setInterval(async () => {
+    try {
+      const r = await fetch("/inbox/c/{{ t.conversation_id }}/messages", {credentials: "same-origin"});
+      if (r.redirected || !r.ok) { location.href = "/inbox/login"; return; }
+      document.getElementById("messages").innerHTML = await r.text();
+      const n = Number(r.headers.get("X-Unread") || 0);
+      document.title = (n ? "(" + n + ") " : "") + document.title.replace(/^\(\d+\) /, "");
+      const open = r.headers.get("X-Window-Open") === "1";
+      if (reply && !reply.dataset.sent) {
+        // Only the reply controls follow the 24h window; Return to bot always works.
+        // (When the window closes, a reload shows the Re-open button.)
+        reply.querySelector("textarea").disabled = !open;
+        document.getElementById("send").disabled = !open;
+        document.getElementById("window-closed").hidden = open;
+      }
+    } catch (e) { /* offline: try again next time */ }
+  }, {{ refresh_seconds }} * 1000);
+</script>
+{% endblock %}

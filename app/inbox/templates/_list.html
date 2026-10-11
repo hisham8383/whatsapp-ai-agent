@@ -1,0 +1,34 @@
+<h1>Waiting for staff{% if handoffs %} ({{ handoffs|length }}){% endif %}</h1>
+{% for h in handoffs %}
+<a class="card" href="/inbox/c/{{ h.conversation_id }}">
+  <div class="row">
+    <strong dir="auto">{{ h.customer_name or "Customer" }}</strong>
+    <span class="muted">+{{ h.wa_id }}</span>
+    {% if h.reason %}<span class="tag">{{ h.reason|replace("_", " ") }}</span>{% endif %}
+    {% if h.unread %}<span class="badge">{{ h.unread }} new</span>{% endif %}
+    {% if not h.window_open %}<span class="tag">24h window closed</span>{% endif %}
+  </div>
+  {% if h.summary %}<div dir="auto">{{ h.summary }}</div>{% endif %}
+  {% if h.handed_off_at %}<div class="muted">Handed over {{ h.handed_off_at.strftime("%a %d %b, %H:%M") }}</div>{% endif %}
+</a>
+{% else %}
+<div class="card muted">Nothing waiting. Conversations the assistant hands to your team appear here.</div>
+{% endfor %}
+
+<h2>Upcoming bookings</h2>
+{% if bookings %}
+<table>
+  <tr><th>When</th><th>Service</th><th>Staff</th><th>Customer</th><th>Reminders</th></tr>
+  {% for b in bookings %}
+  <tr>
+    <td>{{ b.start.strftime("%a %d %b, %H:%M") }}</td>
+    <td dir="auto">{{ b.service }}</td>
+    <td dir="auto">{{ b.staff or "—" }}</td>
+    <td dir="auto">{{ b.customer_name or "" }} <span class="muted">+{{ b.wa_id }}</span></td>
+    <td class="muted">{{ b.reminders }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="card muted">No upcoming bookings.</div>
+{% endif %}

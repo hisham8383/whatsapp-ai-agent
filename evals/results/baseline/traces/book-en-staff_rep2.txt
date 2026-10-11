@@ -1,0 +1,11 @@
+Customer: Please book me a check-up with Dr. Noura on Monday at 11:00. My name is Omar.
+Assistant: Please confirm your booking:
+Dental check-up with Dr. Noura
+Monday 5 October at 11:00
+30 min · 150 SAR
+  [buttons: Yes, book it | Change]
+Customer: Yes
+Assistant: You're booked ✅
+Dental check-up with Dr. Noura
+Monday 5 October at 11:00
+See you then!

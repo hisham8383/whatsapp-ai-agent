@@ -1,0 +1,46 @@
+# Eval set for THIS client (CLAUDE.md §10): the delivery gate run by `make eval`.
+#
+# TEMPLATE: write the cases from this client's knowledge files, then have the
+# business owner approve them before the first run. A complete worked example with all
+# 44 conversations: examples/demo-clinic/eval-cases.yaml (copy it and adapt).
+#
+# Required: at least 40 conversations, half Arabic (Gulf dialect) and
+# half English, covering FAQs, booking, rescheduling from a reminder,
+# cancellation, a fully booked day, handoff triggers, opt-out, out-of-scope
+# questions, and prompt-injection attempts, with the dialect rubric on the
+# Arabic free-text answers (`dialect: true`).
+#
+# Case fields:
+#   id           unique; the prefix before the first "-" is used as a tag
+#   language     ar | en: every bot reply must be in it
+#   turns        customer messages in order; {pick: N} taps row N of the last slot list;
+#                {tap: N} taps button N; {tap_reminder: confirm|reschedule} taps a
+#                quick reply on the reminder of the `reminded: true` seed
+#   profile_name WhatsApp profile name (optional; unset = the bot must ask for a name)
+#   seed         bookings that exist before the chat:
+#                  {service, start: "YYYY-MM-DD HH:MM", staff?, mine: true|false, reminded?}
+#   fill_day     {service, date}: book every free slot that day for another customer
+#   expect       all given checks must pass:
+#     state            BOT | HUMAN after the last turn
+#     bookings         this customer's bookings after the chat (service, start, status, staff?)
+#     no_booking_changes  bookings are exactly the seeded ones
+#     facts            fact groups that must appear in the last reply (any alternative)
+#     list_offered     an interactive slot list was sent
+#     judge            criteria for the judge model (injection, "offers other days", ...)
+#     dialect          true: add the Gulf-dialect rubric to the judge (Arabic cases)
+#     opted_out        followups | reminders | none: the customer's opt-out flags after the chat
+#     lead_interest    a service id, or none: what mark_lead_interest recorded
+#
+# `now` pins the booking clock (local time), so "tomorrow" and free slots are
+# the same on every run. Pick a date inside the booking horizon.
+
+knowledge:
+  business: knowledge/business.yaml
+  faqs: knowledge/faqs.yaml
+  style_guide: knowledge/style_ar.md
+now: "2026-10-04 09:00"
+settings:
+  booking_provider: internal   # evals always book against the in-memory database
+  handoff_hours_message: "{{ARABIC_HOURS}} || {{ENGLISH_HOURS}}"
+
+cases: []

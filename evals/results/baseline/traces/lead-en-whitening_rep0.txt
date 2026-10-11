@@ -1,0 +1,4 @@
+Customer: How much is teeth whitening?
+Assistant: Teeth whitening is 1200 SAR and takes about 60 minutes. It's done by Dr. Sara. Would you like to book a session?
+Customer: OK thanks, I'll think about it.
+Assistant: No problem! If you'd like to book anytime, just let me know. We're here to help. 😊

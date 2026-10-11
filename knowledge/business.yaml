@@ -1,0 +1,35 @@
+# Business info + booking rules. Filled in from the business's requirements.
+business:
+  name_ar: "{{CLIENT_NAME_AR}}"
+  name_en: "{{CLIENT_NAME_EN}}"
+  location: "{{ADDRESS_OR_AREA}}"
+  maps_link: "{{GOOGLE_MAPS_LINK}}"
+  hours:                     # 24h format, local time (BUSINESS_TIMEZONE)
+    sunday: "09:00-21:00"
+    monday: "09:00-21:00"
+    tuesday: "09:00-21:00"
+    wednesday: "09:00-21:00"
+    thursday: "09:00-21:00"
+    friday: "closed"
+    saturday: "16:00-22:00"
+  hours_note: "{{E.G. RAMADAN OR HOLIDAY HOURS}}"
+
+booking_rules:
+  buffer_minutes: 10              # gap between appointments
+  min_lead_time_hours: 2          # earliest bookable time from now
+  booking_horizon_days: 30        # how far ahead customers can book
+  cancellation_policy_ar: "{{POLICY_AR}}"
+  cancellation_policy_en: "{{POLICY_EN}}"
+
+services:
+  - id: "service-1"
+    name_ar: "{{SERVICE_NAME_AR}}"
+    name_en: "{{SERVICE_NAME_EN}}"
+    duration_minutes: 30
+    price_sar: 150
+    staff_ids: ["staff-1"]        # empty list = any available staff
+
+staff:                            # remove if customers don't choose staff/rooms
+  - id: "staff-1"
+    name_ar: "{{STAFF_NAME_AR}}"
+    name_en: "{{STAFF_NAME_EN}}"

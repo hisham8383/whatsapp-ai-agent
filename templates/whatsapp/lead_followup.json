@@ -1,0 +1,22 @@
+[
+  {
+    "name": "lead_followup",
+    "language": "ar",
+    "category": "MARKETING",
+    "components": [
+      {"type": "BODY",
+       "text": "هلا {{1}}، سألت عن {{2}} في {{3}}. تبي نحجز لك موعد؟ للإيقاف أرسل: إيقاف",
+       "example": {"body_text": [["أحمد", "تنظيف الأسنان", "عيادة ديمو"]]}}
+    ]
+  },
+  {
+    "name": "lead_followup",
+    "language": "en",
+    "category": "MARKETING",
+    "components": [
+      {"type": "BODY",
+       "text": "Hi {{1}}, you asked about {{2}} at {{3}}. Would you like us to book it for you? Reply STOP to opt out.",
+       "example": {"body_text": [["Ahmed", "teeth cleaning", "Demo Clinic"]]}}
+    ]
+  }
+]

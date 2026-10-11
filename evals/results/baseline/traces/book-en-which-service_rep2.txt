@@ -1,0 +1,10 @@
+Customer: I want to book an appointment for Tuesday.
+Assistant: Hi there! 👋 I'd be happy to help you book an appointment for Tuesday.
+
+First, which service would you like? We offer:
+- Dental check-up (30 min, 150 SAR)
+- Teeth cleaning (45 min, 250 SAR)
+- Teeth whitening (60 min, 1200 SAR)
+- Children's dental check-up (30 min, 120 SAR)
+
+Let me know which one you need!

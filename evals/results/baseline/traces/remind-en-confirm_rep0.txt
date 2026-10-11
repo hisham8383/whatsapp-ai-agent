@@ -1,0 +1,2 @@
+Customer (tapped reminder button): Confirm
+Assistant: Great, your appointment is confirmed. See you then!

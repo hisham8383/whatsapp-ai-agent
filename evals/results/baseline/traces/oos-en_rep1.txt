@@ -1,0 +1,2 @@
+Customer: Do you do hair transplants?
+Assistant: Hey! 👋 We're a dental clinic, so we focus on teeth—check-ups, cleaning, whitening and children's dentistry. We don't offer hair transplants, but if you need any dental work, we'd love to help! What can I do for you?

@@ -1,0 +1,4 @@
+Customer: Do you accept Tawuniya insurance?
+Assistant: Yes, we accept Tawuniya insurance! We also accept Bupa if that's useful to know.
+
+Is there anything else I can help you with, or would you like to book an appointment?

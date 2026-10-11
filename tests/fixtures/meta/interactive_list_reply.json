@@ -1,0 +1,24 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [{
+    "id": "222222222222222",
+    "changes": [{
+      "field": "messages",
+      "value": {
+        "messaging_product": "whatsapp",
+        "metadata": {"display_phone_number": "966500000009", "phone_number_id": "111111111111111"},
+        "contacts": [{"profile": {"name": "Sarah"}, "wa_id": "966507654321"}],
+        "messages": [{
+          "from": "966507654321",
+          "id": "wamid.INTER0001",
+          "timestamp": "1790000100",
+          "type": "interactive",
+          "interactive": {
+            "type": "list_reply",
+            "list_reply": {"id": "slot_2026-10-01T10:00", "title": "Wed 10:00", "description": "Cleaning"}
+          }
+        }]
+      }
+    }]
+  }]
+}

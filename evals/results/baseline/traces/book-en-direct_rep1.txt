@@ -1,0 +1,11 @@
+Customer: I'd like a teeth cleaning tomorrow at 10am please. My name is Omar.
+Assistant: Please confirm your booking:
+Teeth cleaning with Dr. Sara
+Monday 5 October at 10:00
+45 min · 250 SAR
+  [buttons: Yes, book it | Change]
+Customer: Yes, please book it.
+Assistant: You're booked ✅
+Teeth cleaning with Dr. Sara
+Monday 5 October at 10:00
+See you then!

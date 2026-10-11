@@ -1,0 +1,22 @@
+[
+  {
+    "name": "staff_handoff_alert",
+    "language": "ar",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "عميل يحتاج رد من الفريق: {{1}}. السبب: {{2}}. افتح صندوق الرسائل للرد.",
+       "example": {"body_text": [["أحمد", "استفسار عن فاتورة"]]}}
+    ]
+  },
+  {
+    "name": "staff_handoff_alert",
+    "language": "en",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "A customer needs a team reply: {{1}}. Reason: {{2}}. Open the inbox to respond.",
+       "example": {"body_text": [["Ahmed", "billing question"]]}}
+    ]
+  }
+]

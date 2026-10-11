@@ -1,0 +1,22 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [{
+    "id": "222222222222222",
+    "changes": [{
+      "field": "messages",
+      "value": {
+        "messaging_product": "whatsapp",
+        "metadata": {"display_phone_number": "966500000009", "phone_number_id": "111111111111111"},
+        "contacts": [{"profile": {"name": "Ahmed"}, "wa_id": "966501234567"}],
+        "messages": [{
+          "context": {"from": "966500000009", "id": "wamid.REMINDER0001"},
+          "from": "966501234567",
+          "id": "wamid.BUTTON0001",
+          "timestamp": "1790000000",
+          "type": "button",
+          "button": {"payload": "rem:1:reschedule", "text": "تغيير الموعد"}
+        }]
+      }
+    }]
+  }]
+}

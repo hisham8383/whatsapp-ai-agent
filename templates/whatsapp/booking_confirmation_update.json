@@ -1,0 +1,22 @@
+[
+  {
+    "name": "booking_confirmation_update",
+    "language": "ar",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "تم تحديث موعدك في {{1}}: يوم {{2}} الساعة {{3}}. للتغيير رد على هالرسالة.",
+       "example": {"body_text": [["عيادة ديمو", "الاثنين", "4:30 م"]]}}
+    ]
+  },
+  {
+    "name": "booking_confirmation_update",
+    "language": "en",
+    "category": "UTILITY",
+    "components": [
+      {"type": "BODY",
+       "text": "Your appointment at {{1}} has been updated to {{2}} at {{3}}. Reply to this message to change it.",
+       "example": {"body_text": [["Demo Clinic", "Monday", "4:30 PM"]]}}
+    ]
+  }
+]

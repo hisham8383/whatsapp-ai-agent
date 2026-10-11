@@ -1,0 +1,2 @@
+Customer: STOP
+Assistant: Done, we won't send you follow-up messages any more. You can still message us here any time.

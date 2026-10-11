@@ -1,0 +1,68 @@
+[project]
+name = "whatsapp-ai-agent"
+version = "0.1.0"
+description = "Bilingual (Arabic/English) AI agent for WhatsApp Business: FAQs, bookings, reminders, follow-ups and human handoff."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.2",
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "anthropic>=1.8,<2",   # LLM adapter (CLAUDE.md §3)
+    "jinja2>=3.1",         # staff inbox templates (§5)
+    "tzdata>=2024.1",      # IANA time zones where the OS has none (Windows, slim images)
+    "google-auth>=2.30",   # Google Calendar adapter: service-account tokens (§6)
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML",
+]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+"app.inbox" = ["templates/*.html"]
+"app.public" = ["templates/*.html"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "S", "SIM", "RUF"]
+ignore = [
+    "S101",    # assert is fine in tests
+    "RUF001", "RUF002", "RUF003",  # ambiguous-unicode checks misfire on Arabic text and en dashes
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]  # dummy secrets in tests
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+# google-auth ships type hints but some functions are unannotated.
+module = ["app.booking.google_calendar", "tests.test_google_calendar"]
+disallow_untyped_calls = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,2 @@
+Customer: How much does teeth whitening cost?
+Assistant: Teeth whitening costs 1200 SAR and takes about 60 minutes. It's done by Dr. Sara. Would you like to book a session?

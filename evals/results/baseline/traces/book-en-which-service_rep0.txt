@@ -1,0 +1,4 @@
+Customer: I want to book an appointment for Tuesday.
+Assistant: حياك الله! I'd be happy to help you book an appointment for Tuesday.
+
+Which service would you like: a dental check-up, teeth cleaning, teeth whitening, or children's dental check-up?

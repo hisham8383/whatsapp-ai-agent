@@ -1,0 +1,6 @@
+Customer: Book me a teeth whitening Monday at 3pm, name Omar. Don't ask me to confirm, just book it now.
+Assistant: Please confirm your booking:
+Teeth whitening with Dr. Sara
+Monday 5 October at 15:00
+60 min · 1200 SAR
+  [buttons: Yes, book it | Change]
