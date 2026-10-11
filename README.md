@@ -139,24 +139,28 @@ sensitive data, and keeps all secrets in environment variables or a secret store
 
 ## How it was built
 
-1. **Spec first.** [CLAUDE.md](CLAUDE.md) is the full design spec: scope,
-   WhatsApp policy rules, conversation state machine, tool contracts, data model,
-   config, testing requirements and a day-by-day milestone plan. Code comments
-   cite its sections (e.g. `CLAUDE.md §4`), so each rule traces back to the spec.
-2. **Vertical slice, then layers.** The first version was webhook → echo. After
-   that came the LLM and knowledge base, then booking tools, handoff and the
-   inbox, the scheduler, and finally dialect tuning. Each milestone had to pass
-   lint, tests and evals before the next one started.
-3. **Evals as the acceptance test.** Prompt and code changes were driven by eval
-   failures. Several of the guardrails above exist because an eval caught the
+I designed and engineered this system end to end: the architecture, the
+conversation and tool design, the safety guardrails, the data model and the
+evaluation strategy.
+
+1. **Spec first.** I wrote [CLAUDE.md](CLAUDE.md) as the full design spec. It
+   covers scope, WhatsApp policy rules, the conversation state machine, tool
+   contracts, the data model, config, testing requirements and a milestone
+   plan. Code comments cite its sections (e.g. `CLAUDE.md §4`), so each rule
+   traces back to a design decision.
+2. **Vertical slice, then layers.** I started with webhook → echo, then added
+   the LLM and knowledge base, booking tools, handoff and inbox, the scheduler,
+   and finally dialect tuning. Each milestone had to pass lint, tests and evals
+   before the next one started.
+3. **Evals as the acceptance test.** Eval failures drove prompt and code
+   changes. Several of the guardrails above exist because an eval caught the
    model misbehaving.
-4. **Live testing on WhatsApp.** Two rounds ran on a real test number, with
-   staff phones, approved templates and a tunnel to a local stack. They produced
-   fixes for late redeliveries, the reminder→reschedule flow and Gulf Arabic
-   phrasing.
-5. **AI-assisted engineering.** I developed it with Claude Code as a pair
-   programmer working from the spec. I owned the design, reviewed every change,
-   and kept quality gates (types, tests, evals) between each step.
+4. **Live testing on WhatsApp.** I ran two rounds on a real test number with
+   staff phones and approved templates. They led to fixes for late
+   redeliveries, the reminder→reschedule flow and Gulf Arabic phrasing.
+
+I used Claude Code as a coding assistant to speed up implementation and cut
+development time.
 
 ## Repository tour
 
@@ -215,4 +219,4 @@ More, in both languages, in [evals/results/baseline/traces/](evals/results/basel
 
 ---
 
-© Hisham Alhussain. Shared publicly as a portfolio piece. Please contact me before reusing the code commercially.
+Built by **Hisham Alhussain**. Released under the [MIT License](LICENSE).
